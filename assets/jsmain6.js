@@ -14358,14 +14358,13 @@ var zL = Object.defineProperty
                       cloud.style.width = '300px';
                       cloud.style.height = '200px';
                       // Thời gian bay ngẫu nhiên
-                      const duration = 20 + Math.random() * 20;
+                      const duration = 30 + Math.random() * 40;
                       cloud.style.animationDuration = duration + 's';
                       // Trễ ngẫu nhiên để tạo hiệu ứng liên tục
                       cloud.style.animationDelay = (-Math.random() * duration) + 's';
                       document.body.appendChild(cloud);
                     }
-                    $("<span class='blink'>Mong ước: [" + val_mongmuon_full + "] đã được gửi!</span>").insertAfter("button");
-                    let inputValue = document.getElementById("wish").value;
+                    
                     const textarea = document.getElementsByTagName('textarea')[0];
                     if (textarea) {
                       textarea.style.display = 'none';
@@ -14378,6 +14377,8 @@ var zL = Object.defineProperty
                         top: 0,
                         behavior: 'smooth' // hoặc 'auto' nếu không muốn hiệu ứng mượt
                     });
+                    $("<span class='blink'>Vũ trụ đã lắng nghe mong ước [" + val_mongmuon_full + "] của bạn!</span>").insertAfter("button");
+                    let inputValue = document.getElementById("wish").value;
                 }
                 setSession() {
                     sessionStorage.setItem("PRAY", "Isvalid")
