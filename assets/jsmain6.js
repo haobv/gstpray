@@ -14319,6 +14319,10 @@ var zL = Object.defineProperty
                         KV().fire("Kiểm tra thông tin", "Bạn chưa nhập thông tin để ước nguyện", "warning");
                         return;
                     }
+
+
+
+                    
                     // var filteremail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
                     // if (!filteremail.test(val_ten)) {
                     //     KV().fire("Kiểm tra thông tin", "Email của bạn không đúng định dạng.", "warning");
@@ -14377,7 +14381,7 @@ var zL = Object.defineProperty
                         top: 0,
                         behavior: 'smooth' // hoặc 'auto' nếu không muốn hiệu ứng mượt
                     });
-                    $("<span class='blink'>Vũ trụ đã lắng nghe mong ước [" + val_mongmuon_full + "] của bạn!</span>").insertAfter("button");
+                    $("<span class='blink'>Vũ trụ đang lắng nghe mong ước [" + val_mongmuon_full + "] của bạn!</span>").insertAfter("button");
                     let inputValue = document.getElementById("wish").value;
                 }
                 setSession() {
