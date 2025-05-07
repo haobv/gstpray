@@ -541,7 +541,7 @@
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+        import { getFirestore, doc, getDoc, setDoc, addDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
         // ⚠️ Thay bằng config Firebase thật của bạn
         const firebaseConfig = {
@@ -560,14 +560,28 @@
         const output = document.getElementById("output");
 
         // Đọc document từ collection "demo", document id là "test"
-        const docRef = doc(db, "prays", "commonInfo");
-        const docSnap = await getDoc(docRef);
+        // const docRef = doc(db, "prays", "wish");
+        // const docSnap = await getDoc(docRef);
 
-        if (docSnap.exists()) {
-            output.textContent = JSON.stringify(docSnap.data().countPray, null, 2);
-        } else {
-            output.textContent = "counting....";
-        }
+        // if (docSnap.exists()) {
+        //     output.textContent = JSON.stringify(docSnap.data().countPray, null, 2);
+        // } else {
+        //     output.textContent = "counting....";
+        // }
+
+        const querySnapshot = await getDocs(collection(db, "prays"));
+        const count = querySnapshot.size;  // Đếm số lượng document
+        output.textContent = count;
+        $('.save').on('click', function() {
+            var wish = $("textarea").val();
+            if (wish.length > 0 && (wish.trim() !== "")) {
+                addDoc(collection(db, "prays"), {
+                    wish: wish
+                });
+                output.textContent = count + 1;
+            }
+        });
+
     </script>
 
 
